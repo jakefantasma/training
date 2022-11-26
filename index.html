@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>First game</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+    }
+  </style>
+  <link rel="stylesheet" href="index.css" />
+  <body class="contenedor">
+    <script type="module" src="./node_modules/three/build/three.js"></script>
+    <script type="module" src="./index.js"></script>
+    <div class="panel" id="panel">
+      <div id="camera" class="camerapanel">
+        <p id="CameraPotition">potition:</p>
+        <p id="CameraRotation">rotation:</p>
+      </div>
+      <div id="logpanel">
+        <textarea class="log" name="log" id="Console" cols="40" rows="40"></textarea>
+      </div>
+    </div>
+  </body>
+</html>
