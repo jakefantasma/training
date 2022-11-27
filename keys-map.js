@@ -9,4 +9,5 @@ document.addEventListener("keydown", (e) => {
       item.accion();
     }
   });
+  //console.log(e.key);
 });
