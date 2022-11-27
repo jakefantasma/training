@@ -4,6 +4,7 @@ let panelRef = {
   CameraPotition: null,
   CameraRotation: null,
   Console: null,
+  Entidades: null,
 };
 
 function initPanel() {
@@ -11,9 +12,10 @@ function initPanel() {
   panelRef.CameraPotition = document.getElementById("CameraPotition");
   panelRef.CameraRotation = document.getElementById("CameraRotation");
   panelRef.Console = document.getElementById("Console");
+  panelRef.Entidades = document.getElementById("Cantidad");
 }
 
-function update(camera) {
+function update(camera, entidad) {
   initPanel();
   panelRef.CameraPotition.innerHTML =
     "position: x:" +
@@ -30,6 +32,7 @@ function update(camera) {
     camera.rotation.y +
     "  z:" +
     camera.rotation.z;
+  panelRef.Entidades.innerHTML = "Entidades: " + entidad.length;
 }
 function log(msg) {
   panelRef.Console.innerHTML += msg + "\n";

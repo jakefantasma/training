@@ -29,14 +29,14 @@ AddAccion(["ArrowLeft"], () => {
   camera.rotation.y += step;
 });
 AddAccion(["W", "w"], () => {
-  //camera.position.y += step;
-  //pl.moveY(step);
+  camera.position.y += step;
+  pl.moveY(step);
 });
 AddAccion(["S", "s"], () => {
-  //camera.position.y -= step;
-  //pl.moveY(-step);
+  camera.position.y -= step;
+  pl.moveY(-step);
 });
-let mv = step * 10;
+let mv = step * 5;
 AddAccion(["A", "a"], () => {
   camera.position.x -= mv;
   pl.moveX(-mv);
@@ -59,16 +59,17 @@ AddAccion(["q", "Q"], () => {
 });
 AddAccion(["Control"], () => {
   //pl.action();
-  addEntity(new Disparo(pl.getX(), pl.getY()));
+  //addEntity(new Disparo(pl.getX(), pl.getY()));
 });
 InitScreen(window.innerWidth - 400, window.innerHeight);
 setCurrentRender(CreateScene(), camera);
-camera.position.z = 5.5;
-camera.position.y = -10;
-camera.rotation.x = 1.25;
+camera.position.z =29.5;
+camera.position.y = -13;
+camera.position.x = 17.5;
+camera.rotation.x = 0.75;
 let nivel = 1.5;
 //addEntity(pl);
-pl = new Player(0, 0, nivel);
+pl = new Player(camera.position.x, -4, nivel);
 addEntity(pl);
 addEntity(new Box(4, 3, nivel));
 addEntity(new Box(18, 10, nivel));

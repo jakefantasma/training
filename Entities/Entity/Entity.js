@@ -1,12 +1,17 @@
 export class Entity {
   gmt = null;
+  _name = "";
   constructor(x_, y_, z_) {
     this._x = x_;
     this._y = y_;
     this._z = z_;
   }
+  getName() {
+    return this._name;
+  }
   updateGmt(gmt_) {
     this.gmt = gmt_;
+    this._name = gmt_.uuid;
   }
   getGmt() {
     return this.gmt;
@@ -34,7 +39,7 @@ export class Entity {
     this.SyncPotition();
   }
   update() {
-    console.log("default called");
+    //console.log("default called");
   }
   inflator() {}
 }

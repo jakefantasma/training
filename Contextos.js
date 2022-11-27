@@ -1,4 +1,6 @@
 import { Panel } from "./panelhandler.js";
+import { updateEntities, getListEntities } from "./GestorEntidades.js";
+
 let ___ManagerScene = null;
 let ___ManagerCamera = null;
 let render = null;
@@ -37,7 +39,6 @@ function line(x, y, x_, y_) {
   const line = new THREE.Line(geometry, material);
   ___ManagerScene.add(line);
 }
-
 export function CreateCamera() {
   //TODO ES NECESARIO REALIZAR CAMBIO AQUI :V
   return new THREE.PerspectiveCamera(
@@ -52,7 +53,7 @@ export function CreateScene() {
 }
 //append render to view <- and define de size screen
 export function InitScreen(sizeW, sizeH) {
-  console.log("render append");
+  //console.log("render append");
   render = new THREE.WebGLRenderer();
   render.setSize(sizeW, sizeH);
   document.body.appendChild(render.domElement);
@@ -62,10 +63,9 @@ export function setCurrentRender(esena_, camera_) {
   ___ManagerCamera = camera_;
   mapa();
 }
-
 export function Loop() {
-  //updateEntities();
+  updateEntities();
   requestAnimationFrame(Loop);
-  Panel.update(___ManagerCamera);
+  Panel.update(___ManagerCamera, getListEntities());
   render.render(___ManagerScene, ___ManagerCamera);
 }
